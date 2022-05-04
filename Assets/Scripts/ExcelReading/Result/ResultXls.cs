@@ -40,7 +40,7 @@ namespace XlsWork
                     int itemID = Convert.ToInt32(item.Values[0].ToString());//获取ID
                     ItemDictionary.Add(itemID, item);//将ID和操作单元写入字典
                 }
-                Debug.Log("complete");
+                //Debug.Log("complete");
                 return ItemDictionary;
             }
         }

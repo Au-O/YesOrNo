@@ -21,7 +21,12 @@ public class ResultInfo : MonoBehaviour
     public ResultSettings resultSettings;
 
     [Header("Åä±íÄÚID")]
+
     public int InitFromID;
 
-
+    public void getInfo(int i)
+    {
+        InitFromID = i;
+        this.GetComponent<ResultInfo_Editor>().Init();
+    }
 }

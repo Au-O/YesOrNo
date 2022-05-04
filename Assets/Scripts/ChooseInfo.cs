@@ -24,5 +24,10 @@ public class ChooseInfo : MonoBehaviour
     [Header("Åä±íÄÚID")]
     public int InitFromID;
 
+    public void getInfo(int i)
+    {
+        InitFromID = i;
+        this.GetComponent<ChooseInfo_Editor>().Init();
+    }
     
 }
