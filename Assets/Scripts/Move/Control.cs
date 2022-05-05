@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controll : MonoBehaviour
+public class Control : MonoBehaviour
 {
     public float speed;
     public float run;
+    public int blood;
 
     public float Jumpforce;//跳跃力度
     public Transform GroundCheck;//改善手感
@@ -50,6 +51,7 @@ public class Controll : MonoBehaviour
                 player.position -= player.right * speed * Time.deltaTime;
         }
         Jump();
+
     }
     public void playerFlip()
     {
