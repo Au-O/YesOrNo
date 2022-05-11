@@ -28,7 +28,6 @@ public class UIDataShow : MonoBehaviour
     private Image img_nagMorality;
     private Image bg_normal;
     private Image bg_shock;
-    //private Image blur_mask;
     public GameObject img_tick;    //时钟指针
 
     public int morality = 30;  //道德
@@ -50,7 +49,6 @@ public class UIDataShow : MonoBehaviour
     public Image ImgPosMor { get => img_posMorality; private set => img_posMorality = value; }
     public Image ImgNegMor { get => img_nagMorality; private set => img_nagMorality = value; }
     public Image BgShock { get => bg_shock; private set => bg_shock = value; }
-    //public Image BlurMask { get => blur_mask; private set => blur_mask = value; }
     public Text TxtResult { get => txtResult; set => txtResult = value; }
 
     void Start()
@@ -71,7 +69,6 @@ public class UIDataShow : MonoBehaviour
         ImgEnergy = GameObject.Find("red").GetComponent<Image>();
         ImgNegMor = GameObject.Find("negative").GetComponent<Image>();
         ImgPosMor = GameObject.Find("positive").GetComponent<Image>();
-       // BlurMask = GameObject.Find("blur_mask").GetComponent<Image>();
         canFlip = GameObject.Find("canFlip");
 
     }
@@ -111,6 +108,7 @@ public class UIDataShow : MonoBehaviour
         result.SetActive(!show_choice);
         BgNormal.gameObject.SetActive(morality > 0);
         BgShock.gameObject.SetActive(morality <= 0);
+        
     }
     public void CountDown(int time)
     {
@@ -123,14 +121,14 @@ public class UIDataShow : MonoBehaviour
     }
     public IEnumerator CountDown()
     {
-        while (countDown >= 0 && choiceObject.activeSelf)
+        while (countDown > 0 && choiceObject.activeSelf)
         {
             img_tick.transform.Rotate(new Vector3(0, 0, 1), 6);
             //Debug.Log(countDown);
             yield return new WaitForSeconds(1);
             countDown--;
         }
-        if(countDown<0)
+        if(countDown<=0)
         {
             coinAnim.gameObject.GetComponent<Coin>().AnimEndEvent();
             btn_check.gameObject.SetActive(false);
@@ -138,7 +136,7 @@ public class UIDataShow : MonoBehaviour
         }
         
     }
-        public void ChangeValue1(int energy)
+    public void ChangeValue1(int energy)
     {
         img_energy.fillAmount=Mathf.Lerp(0,1f,energy/100f);
     }
@@ -180,10 +178,9 @@ public class UIDataShow : MonoBehaviour
             {
                 gamemain.PushChoose(coinAnim.GetComponent<Coin>().choice);
                 gamemain.SolveResult();
-                ShowResult();
-                player.AddMorality(gamemain.resultData.resultSettings.MorilityChange);
-                player.AddEnergy(gamemain.resultData.resultSettings.EnergyChange);
-                SetPlayerInfo(player.energy, player.morality);
+                gamemain.playEffect = true;
+                if(gamemain.justUI)
+                    ShowResult();  
             }
             
         }       
@@ -207,4 +204,5 @@ public class UIDataShow : MonoBehaviour
             }
         }
     }
+    
 }

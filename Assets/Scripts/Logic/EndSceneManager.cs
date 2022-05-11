@@ -17,9 +17,9 @@ public class EndSceneManager : MonoBehaviour
 
     }
 
-    public void ReturnScene()
+    public void ExitScene()
     {
-        SceneManager.LoadScene(0);
+        Application.Quit();
     }
     public void StartGame()
     {

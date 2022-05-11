@@ -17,26 +17,65 @@ public class GameMain : MonoBehaviour
     public int index;
     public int eventNum = 7;
 
+    public List<int> moveScene;
+    public List<int> sceneId;
+
+    public bool justUI = true;
     #endregion
 
     #region UI控制
     public UIDataShow uIDataShow;
     #endregion
 
+    #region 特效控制
+    public EffectManager emt;
+    public bool playEffect;
+    #endregion
+
+    #region 音效
+    public Sound sound;
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
-        resultData.getInfo(1001);
-
+        playEffect = true;
         player = new Player();
         uIDataShow = GetComponent<UIDataShow>();
-        choosedResult = new List<int>();
-        nowChoose = new List<int>();
-        index = 0;
-        isChoosed = new List<int>(eventNum);
-        for (int i = 0; i < eventNum; i++)
-            isChoosed.Add(0);
-
+        if (GameData.Instance.index == 0)
+        {
+            resultData.getInfo(1001);
+            choosedResult = new List<int>();
+            isChoosed = new List<int>(eventNum);
+            nowChoose = new List<int>();
+            for (int i = 0; i < eventNum; i++)
+                isChoosed.Add(0);
+        }
+        else
+        {
+            index = GameData.Instance.index;
+            choosedResult = GameData.Instance.choosedResult;
+            isChoosed = GameData.Instance.isChoosed;
+            nowChoose = GameData.Instance.nowChoose;
+            uIDataShow.energy = GameData.Instance.energy;
+            uIDataShow.morality = GameData.Instance.morality;
+            player.energy= GameData.Instance.energy;
+            player.morality = GameData.Instance.morality;
+        }
+        if (index == eventNum - 1)
+        {
+            if (uIDataShow.energy <= 0)
+                SceneManager.LoadScene(3);
+            else
+                SceneManager.LoadScene(4);
+        }
+        else if (uIDataShow.energy <= 0)
+            SceneManager.LoadScene(2);
+        if (uIDataShow.morality <= 0)
+        {
+            List<int> temp = new List<int>();
+            temp.Add(7);
+            GameObject.Find("Canvas").GetComponent<EffectManager>().ShowEffect(temp);
+        }
         uIDataShow.CountDown(GetLastTime());
     }
 
@@ -52,8 +91,12 @@ public class GameMain : MonoBehaviour
                 if (uIDataShow.TxtTitle != null)
                 {
                     uIDataShow.SetTxt(eventData.chooseSettings.Description, eventData.chooseSettings.TrueSideDes, eventData.chooseSettings.FalseSideDes);
+                    if (playEffect)
+                    {
+                        PlayEventSound();
+                        playEffect = false;
+                    }
 
-                    //PlayEventSound();
                     FillUIImg();
                 }
             }
@@ -63,8 +106,6 @@ public class GameMain : MonoBehaviour
 
     public void SolveResult()
     {
-        //Debug.Log(nowChoose.Count);
-        //if (nowChoose.Count <= index) return;
         List<int> nowResult;
         if (nowChoose[index] == 1)
             nowResult = eventData.chooseSettings.TrueSide;
@@ -127,15 +168,31 @@ public class GameMain : MonoBehaviour
             }
         }
         isChoosed[index] = 1;
+        if (tempResult == 5002 && GameData.Instance.hasPushed == false)
+            tempResult = 5001;
+        else if (tempResult == 5004 && GameData.Instance.hasPushed == false)
+        {
+            if (GameData.Instance.hasHurt)
+                tempResult = 5006;
+            else
+                tempResult = 5003;
+        }
+        else if (tempResult == 5005 && GameData.Instance.hasPushed == false)
+            tempResult = 5006;
+            
         TriggerResult(tempResult);
         choosedResult.Add(tempResult);
+        player.AddMorality(resultData.resultSettings.MorilityChange);
+        player.AddEnergy(resultData.resultSettings.EnergyChange);
+        uIDataShow.SetPlayerInfo(player.energy, player.morality);
+        checkScene(tempResult);
 
     }
     
     public void TriggerResult(int rid)
     {
         resultData.getInfo(rid);
-        //PlayResultSound();
+        PlayResultSound();
         uIDataShow.TxtResult.text = resultData.resultSettings.Event;
         FillUIImg();
     }
@@ -163,5 +220,41 @@ public class GameMain : MonoBehaviour
             nowChoose.Add(1);
         else
             nowChoose.Add(0);
+    }
+
+    public void checkScene(int id)
+    {
+        if (moveScene.Contains(id))
+        {
+            justUI = false;
+            GameData.Instance.index = index;
+            GameData.Instance.energy = uIDataShow.energy;
+            GameData.Instance.morality = uIDataShow.morality;
+            GameData.Instance.choosedResult = choosedResult;
+            GameData.Instance.isChoosed = isChoosed;
+            GameData.Instance.nowChoose = nowChoose;
+            //Debug.Log("1:" + GameData.Instance.morality);
+            SceneManager.LoadScene(sceneId[moveScene.IndexOf(id)]);
+        }
+    }
+    public void PlayEventSound()
+    {
+        emt.ShowEffect(GetChooseEffect());
+        sound.PlayBG(eventData.chooseSettings.BGM);
+        sound.PlayEffect(eventData.chooseSettings.Sound);
+    }
+    public void PlayResultSound()
+    {
+        emt.ShowEffect(GetResultEffect());
+        sound.PlayBG(resultData.resultSettings.BGM);
+        sound.PlayEffect(resultData.resultSettings.Sound);
+    }
+    public List<int> GetChooseEffect()
+    {
+        return eventData.chooseSettings.Effect;
+    }
+    public List<int> GetResultEffect()
+    {
+        return resultData.resultSettings.Effect;
     }
 }

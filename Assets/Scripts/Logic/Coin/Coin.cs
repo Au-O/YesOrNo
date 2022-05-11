@@ -48,12 +48,10 @@ public class Coin : MonoBehaviour
         coinAnim.SetTrigger("endFlip");
         gameMain.PushChoose(choice);
         gameMain.SolveResult();
-        gameMain.uIDataShow.ShowResult();       
-        uIDataShow.player.AddMorality(gameMain.resultData.resultSettings.MorilityChange);
-        uIDataShow.player.AddEnergy(gameMain.resultData.resultSettings.EnergyChange);
-        uIDataShow.SetPlayerInfo(uIDataShow.player.energy, uIDataShow.player.morality);
-        Debug.Log("choice:" + choice);
-       
+        if (gameMain.justUI)
+        {         
+            gameMain.uIDataShow.ShowResult();
+        }
         gameMain.uIDataShow.RefreshCoinState();
     }
 

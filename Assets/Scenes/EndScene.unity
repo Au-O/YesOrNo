@@ -548,7 +548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 363852169}
         m_TargetAssemblyTypeName: EndSceneManager, Assembly-CSharp
-        m_MethodName: ReturnScene
+        m_MethodName: ExitScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
