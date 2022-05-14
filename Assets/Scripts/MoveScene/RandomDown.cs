@@ -5,7 +5,8 @@ using UnityEngine;
 public class RandomDown : MonoBehaviour
 {
     private List<Transform> objectArray;
-    public int time;
+    private int time=25;
+    public float inter;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +44,7 @@ public class RandomDown : MonoBehaviour
             }
             else if (time > 0)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(inter);
             }
         }
     }

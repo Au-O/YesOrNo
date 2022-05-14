@@ -17,13 +17,14 @@ public class Control : MonoBehaviour
     private int flip;
     Transform player;
     Rigidbody2D rb;
-
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         flip = 1;
         player = this.gameObject.transform;
         rb = this.GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     void FixedUpdate()
     {
@@ -34,21 +35,40 @@ public class Control : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
+            anim.SetBool("walk",true);
             if (flip != 1)
                 playerFlip();
-            if(Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                anim.SetBool("run", true);
                 player.position += player.right * run * Time.deltaTime;
+            }
             else
+            {
+                anim.SetBool("run", false);
                 player.position += player.right * speed * Time.deltaTime;
+            }
+                
+        }
+        if (Input.GetKeyUp(KeyCode.D)|| Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetBool("walk", false);
         }
         if (Input.GetKey(KeyCode.A))
         {
+            anim.SetBool("walk",true);
             if (flip != -1)
                 playerFlip();
             if (Input.GetKey(KeyCode.LeftShift))
+            {
+                anim.SetBool("run", true);
                 player.position -= player.right * run * Time.deltaTime;
+            }
             else
+            {
+                anim.SetBool("run", false);
                 player.position -= player.right * speed * Time.deltaTime;
+            }
         }
         Jump();
 
@@ -69,7 +89,7 @@ public class Control : MonoBehaviour
         {
             rb.velocity = Vector2.up * Jumpforce;
             extraJump--;
-            //Anim.SetBool("jumping", true);
+            anim.SetTrigger("jump");
             //jumpAudio.Play();
         }
     }
@@ -79,4 +99,5 @@ public class Control : MonoBehaviour
         run /= 2;
         Jumpforce /= 2;
     }
+
 }

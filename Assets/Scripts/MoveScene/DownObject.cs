@@ -18,6 +18,7 @@ public class DownObject : MonoBehaviour
     }
     public void down()
     {
+        GetComponentInChildren<Animator>().SetTrigger("down");
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         GetComponent<Rigidbody2D>().AddForce(5 * Vector2.down);
     }

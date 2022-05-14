@@ -18,7 +18,7 @@ public class LightControl : MonoBehaviour
     public void LightDown()
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        GetComponent<Rigidbody2D>().AddForce(5 * Vector2.down);
+        GetComponent<Rigidbody2D>().velocity=5 * Vector2.down;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,6 +29,6 @@ public class LightControl : MonoBehaviour
         }
         if (collision.transform.tag == "person")
             GameData.Instance.hasPushed = false;
-            
+        Destroy(this.gameObject);    
     }
 }

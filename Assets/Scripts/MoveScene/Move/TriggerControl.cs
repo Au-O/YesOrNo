@@ -85,5 +85,6 @@ public class TriggerControl : MonoBehaviour
     {
         pick = true;
     }
-    
+
+   
 }

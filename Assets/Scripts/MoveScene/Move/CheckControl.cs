@@ -9,7 +9,7 @@ public class CheckControl : MonoBehaviour
     public int blood;
     public string ChatName;    //定义选择哪个对话block
     public bool canChat = false;
- 
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +44,7 @@ public class CheckControl : MonoBehaviour
     public void pushed()
     {
         gameObject.transform.parent.GetComponent<Rigidbody2D>().velocity=Vector2.right*3;
+        anim.SetTrigger("push");
         Flowchart flowChart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
         if (flowChart.HasBlock(ChatName))
         {

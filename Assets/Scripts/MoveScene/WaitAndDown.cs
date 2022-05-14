@@ -29,6 +29,7 @@ public class WaitAndDown : MonoBehaviour
             img_tick.transform.Rotate(new Vector3(0, 0, 1), 6);
             if (time == 0)
             {
+                light.GetComponentInChildren<Animator>().SetTrigger("down");
                 light.GetComponent<LightControl>().LightDown();
                 yield break;//Í£Ö¹ Ð­³Ì
             }
