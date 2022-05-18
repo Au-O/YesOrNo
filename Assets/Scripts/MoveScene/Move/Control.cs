@@ -18,6 +18,9 @@ public class Control : MonoBehaviour
     Transform player;
     Rigidbody2D rb;
     private Animator anim;
+    public GameObject bag;
+    public bool canOpen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bagOpen();
         if (Input.GetKey(KeyCode.D))
         {
             anim.SetBool("walk",true);
@@ -97,7 +101,12 @@ public class Control : MonoBehaviour
     {
         speed /= 2;
         run /= 2;
-        Jumpforce /= 2;
     }
-
+    public void bagOpen()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab)&&canOpen)
+        {
+            bag.SetActive(!bag.activeSelf);
+        }
+    }
 }

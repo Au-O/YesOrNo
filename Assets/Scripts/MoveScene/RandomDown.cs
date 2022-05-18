@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomDown : MonoBehaviour
 {
-    private List<Transform> objectArray;
+    public List<Transform> objectArray;
     private int time=25;
     public float inter;
     // Start is called before the first frame update
@@ -34,9 +34,7 @@ public class RandomDown : MonoBehaviour
             time -= 5;
             if (time % 5 == 0)
             {
-                int i = Random.Range(0, objectArray.Count);
-                objectArray[i].gameObject.GetComponent<DownObject>().down();
-                objectArray.RemoveAt(i);
+                objectDown();
             }
             if (time == 0)
             {
@@ -47,5 +45,12 @@ public class RandomDown : MonoBehaviour
                 yield return new WaitForSeconds(inter);
             }
         }
+    }
+    public void objectDown()
+    {
+        int i = Random.Range(0, objectArray.Count);
+        if (objectArray[i]!=null)
+            objectArray[i].gameObject.GetComponent<DownObject>().down();
+        objectArray.RemoveAt(i);
     }
 }

@@ -63,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 782324659900024371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.2, y: 0.28, z: 0}
-  m_LocalScale: {x: 0.76214004, y: 0.76214004, z: 0.76214004}
+  m_LocalScale: {x: 0.65810794, y: 0.65810794, z: 0.65810794}
   m_Children:
   - {fileID: 782324660212073393}
   - {fileID: 782324660556105674}
@@ -146,8 +146,8 @@ MonoBehaviour:
   - {fileID: 782324660066094294}
   - {fileID: 782324660827465382}
   m_Bounds:
-    m_Center: {x: 0.054957867, y: 0.28822422, z: 0}
-    m_Extent: {x: 0.7850079, y: 2.6617756, z: 0}
+    m_Center: {x: 0.054956377, y: 0.2882247, z: 0}
+    m_Extent: {x: 0.7850063, y: 2.6617756, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!50 &782324659900024383
@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 0}
+  scene: 1
 --- !u!95 &782324659900024379
 Animator:
   serializedVersion: 3

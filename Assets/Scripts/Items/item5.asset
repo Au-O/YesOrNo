@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8eddabc416602049b586df2c9f7c6a0, type: 3}
+  m_Name: item5
+  m_EditorClassIdentifier: 
+  itemImg: {fileID: 21300000, guid: 6f4ed19c536a00848b2b93d14235375e, type: 3}
+  itemNum: 1
+  blood: 10
+  itemDes: "\u4E00\u76D2\u5DE7\u514B\u529B\uFF0C\u770B\u8D77\u6765\u662F\u6709\u5C0F\u60C5\u4FA3\u7559\u4E0B\u7684\u3002\n\u4F7F\u7528\u540E\u53EF\u589E\u52A010\u70B9\u7CBE\u529B\u503C\u3002"
+  canUse: 1

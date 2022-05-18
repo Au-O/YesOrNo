@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class TriggerControl : MonoBehaviour
 {
     public CheckControl prompt;
-    private bool pick = false;
-
+    public int scene;
+ 
     public void Show(GameObject prompt)
     {
         prompt.SetActive(true);
@@ -37,7 +37,6 @@ public class TriggerControl : MonoBehaviour
             prompt.Hide();
             if (collision.tag == "checkTrigger")
                 prompt.canChat =false;
-            pick = false;
         }
         
     }
@@ -46,21 +45,38 @@ public class TriggerControl : MonoBehaviour
     {
         if (collision.tag == "checkTrigger")
         {
-            if (Input.GetKeyDown(KeyCode.E)&&prompt.canChat)
+            if (prompt.canChat)
             {
-                prompt.Say();
-                
+                if(Input.GetKeyDown(KeyCode.E))
+                    prompt.Say();           
+                else if (Input.GetKeyDown(KeyCode.R))
+                {
+                    CheckControl checkItem = prompt.GetComponent<CheckControl>();
+                    if (checkItem.thisBag.itemList.Count == 15)
+                    {
+                        Flowchart flowChart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
+                        if (flowChart.HasBlock("bag"))
+                        {
+                            flowChart.ExecuteBlock("bag");
+                        }
+                    }
+                    else
+                    {
+                        if (checkItem.canPick)
+                        {
+                            addNewItem(checkItem);
+                            Destroy(collision.gameObject);
+                        }
+                    }
+                    
+                }
+
             }
         }
         if (collision.tag == "person")
         {
             if (Input.GetKeyDown(KeyCode.E))
                 prompt.pushed();
-        }
-        if (Input.GetKeyDown(KeyCode.R) && pick)
-        {
-            this.GetComponent<Control>().blood += prompt.blood;
-            Destroy(collision.gameObject);
         }
 
     }
@@ -75,16 +91,25 @@ public class TriggerControl : MonoBehaviour
     {
 
     }
+    public void addNewItem(CheckControl checkItem)
+    {
+        if (!checkItem.thisBag.itemList.Contains(checkItem.thisItem))
+        {
+            checkItem.thisBag.itemList.Add(checkItem.thisItem);
+            //BagManager.createNewItem(checkItem.thisItem);
+        }
+        else
+        {
+            checkItem.thisItem.itemNum++;
+        }
+        if(this.gameObject.GetComponent<Control>().canOpen)
+            BagManager.RefreshItem();
+    }
     public void loadScene()
     {
-        GameData.Instance.index++;
+        if(scene==1)
+            GameData.Instance.index++;
         GameData.Instance.energy += this.GetComponent<Control>().blood;
-        SceneManager.LoadScene(1);
-    }
-    public void canPick()
-    {
-        pick = true;
-    }
-
-   
+        SceneManager.LoadScene(scene);
+    }  
 }

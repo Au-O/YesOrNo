@@ -30,8 +30,8 @@ public class UIDataShow : MonoBehaviour
     private Image bg_shock;
     public GameObject img_tick;    //时钟指针
 
-    public int morality = 30;  //道德
-    public int energy = 100;  //精力
+    public int morality = 20;  //道德
+    public int energy = 50;  //精力
     public bool show_choice = true; //是否Choice面板
     private int countDown;  //倒计时时间
     public Coroutine cd = null;
@@ -190,6 +190,8 @@ public class UIDataShow : MonoBehaviour
             {
                 if (energy <= 0)
                     SceneManager.LoadScene(3);
+                else if (morality <= 0)
+                    SceneManager.LoadScene(19);
                 else
                     SceneManager.LoadScene(4);
             }
@@ -197,10 +199,21 @@ public class UIDataShow : MonoBehaviour
                 SceneManager.LoadScene(2);
             else
             {
-                ShowChoice();
-                gamemain.uIDataShow.RefreshCoinState();
-                gamemain.index++;
-                CountDown(gamemain.GetLastTime());
+                //ShowChoice();
+                // gamemain.uIDataShow.RefreshCoinState();
+                GameData.Instance.index = gamemain.index;
+                GameData.Instance.energy = energy;
+                GameData.Instance.morality = morality;
+                GameData.Instance.choosedResult = gamemain.choosedResult;
+                GameData.Instance.isChoosed = gamemain.isChoosed;
+                GameData.Instance.nowChoose = gamemain.nowChoose;
+                if (gamemain.index == 0 || gamemain.index == 1)
+                    SceneManager.LoadScene(16);
+                else if (gamemain.index == 2 || gamemain.index == 3)
+                    SceneManager.LoadScene(17);
+                else
+                    SceneManager.LoadScene(18);
+                //CountDown(gamemain.GetLastTime());
             }
         }
     }

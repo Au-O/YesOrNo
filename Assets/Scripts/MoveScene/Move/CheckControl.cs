@@ -5,10 +5,12 @@ using Fungus;
 
 public class CheckControl : MonoBehaviour
 {
-    public bool canPick;
+    public Item thisItem;
+    public Bag thisBag;
     public int blood;
     public string ChatName;    //定义选择哪个对话block
     public bool canChat = false;
+    public bool canPick;
     public Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -51,8 +53,8 @@ public class CheckControl : MonoBehaviour
             flowChart.ExecuteBlock(ChatName);
         }
     }
-    public void destroy()
-    {
-        Destroy(transform.parent.gameObject);
-    }
+   // public void destroy()
+   // {
+   //     Destroy(transform.parent.gameObject);
+   // }
 }

@@ -2337,7 +2337,7 @@ MonoBehaviour:
   amountOLD: {x: 0, y: 0, z: 0}
 --- !u!114 &1150005520
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2884,8 +2884,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choiceObject: {fileID: 2123186995}
   img_tick: {fileID: 1517597346}
-  morality: 30
-  energy: 100
+  morality: 20
+  energy: 50
   show_choice: 1
 --- !u!114 &1414609836
 MonoBehaviour:

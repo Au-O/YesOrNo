@@ -8,8 +8,8 @@ public class Player
     
     public Player()
     {
-        morality = 30;
-        energy = 100;
+        morality = 20;
+        energy = 50;
     }
 
     public void AddMorality(int value)

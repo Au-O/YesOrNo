@@ -20,7 +20,7 @@ namespace XlsWork
             public static Dictionary<int, IndividualData> LoadExcelAsDictionary()
             {
                 Dictionary<int, IndividualData> ItemDictionary = new Dictionary<int, IndividualData>();//新建词典
-                string path = Application.dataPath + "/Data/Excels/Choose.xlsx";
+                string path = Application.streamingAssetsPath + "/Data/Excels/Choose.xlsx";
                 FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 ExcelPackage excel = new ExcelPackage(fs);
                 ExcelWorksheets workSheets = excel.Workbook.Worksheets;//查找到工作簿内各工作表

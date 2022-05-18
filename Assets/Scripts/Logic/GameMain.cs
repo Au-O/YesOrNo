@@ -60,6 +60,8 @@ public class GameMain : MonoBehaviour
             uIDataShow.morality = GameData.Instance.morality;
             player.energy= GameData.Instance.energy;
             player.morality = GameData.Instance.morality;
+            //uIDataShow.RefreshCoinState();
+            //uIDataShow.CountDown(GetLastTime());
         }
         if (index == eventNum - 1)
         {
@@ -77,6 +79,7 @@ public class GameMain : MonoBehaviour
             GameObject.Find("Canvas").GetComponent<EffectManager>().ShowEffect(temp);
         }
         uIDataShow.CountDown(GetLastTime());
+        
     }
 
     // Update is called once per frame
