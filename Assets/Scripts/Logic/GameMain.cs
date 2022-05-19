@@ -63,14 +63,8 @@ public class GameMain : MonoBehaviour
             //uIDataShow.RefreshCoinState();
             //uIDataShow.CountDown(GetLastTime());
         }
-        if (index == eventNum - 1)
-        {
-            if (uIDataShow.energy <= 0)
-                SceneManager.LoadScene(3);
-            else
-                SceneManager.LoadScene(4);
-        }
-        else if (uIDataShow.energy <= 0)
+        Debug.Log(uIDataShow.energy);
+        if (uIDataShow.energy <= 0)
             SceneManager.LoadScene(2);
         if (uIDataShow.morality <= 0)
         {

@@ -9,7 +9,7 @@ public class Player
     public Player()
     {
         morality = 20;
-        energy = 50;
+        energy = 45;
     }
 
     public void AddMorality(int value)

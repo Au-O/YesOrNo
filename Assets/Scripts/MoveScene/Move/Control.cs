@@ -57,6 +57,7 @@ public class Control : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.D)|| Input.GetKeyUp(KeyCode.A))
         {
             anim.SetBool("walk", false);
+            anim.SetBool("run", false);
         }
         if (Input.GetKey(KeyCode.A))
         {

@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img_tick: {fileID: 1293831305}
   light: {fileID: 2104485232}
-  time: 15
+  time: 8
 --- !u!114 &766936668
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2541,7 +2541,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648607500}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

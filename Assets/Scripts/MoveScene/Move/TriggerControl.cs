@@ -52,22 +52,23 @@ public class TriggerControl : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.R))
                 {
                     CheckControl checkItem = prompt.GetComponent<CheckControl>();
-                    if (checkItem.thisBag.itemList.Count == 15)
+                    if (checkItem.canPick)
                     {
-                        Flowchart flowChart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
-                        if (flowChart.HasBlock("bag"))
+                        if (checkItem.thisBag.itemList.Count == 15)
                         {
-                            flowChart.ExecuteBlock("bag");
+                            Flowchart flowChart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
+                            if (flowChart.HasBlock("bag"))
+                            {
+                                flowChart.ExecuteBlock("bag");
+                            }
                         }
-                    }
-                    else
-                    {
-                        if (checkItem.canPick)
+                        else
                         {
                             addNewItem(checkItem);
                             Destroy(collision.gameObject);
                         }
                     }
+                    
                     
                 }
 

@@ -2140,7 +2140,7 @@ PrefabInstance:
       objectReference: {fileID: 1094792349}
     - target: {fileID: 782324659900024381, guid: 13a5b5a7414cd8a4ab5e0b4b215aeee2, type: 3}
       propertyPath: blood
-      value: -10
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 782324659900024381, guid: 13a5b5a7414cd8a4ab5e0b4b215aeee2, type: 3}
       propertyPath: canOpen
@@ -3115,7 +3115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img_tick: {fileID: 176449495}
   ChatName: Bomb
-  time: 25
+  time: 20
 --- !u!114 &1863852342
 MonoBehaviour:
   m_ObjectHideFlags: 2

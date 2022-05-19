@@ -31,9 +31,11 @@ public class BagManager : MonoBehaviour
     {
         if (instance.bePicked != null)
         {
-            removeBtn.interactable = true;
+            instance.removeBtn.interactable = true;
             if (instance.bePicked.slotItem.canUse)
-                useBtn.interactable = true;
+                instance.useBtn.interactable = true;
+            else
+                instance.useBtn.interactable = false;
         }
     }
     public static void updateItemInfo(string itemDescrip)

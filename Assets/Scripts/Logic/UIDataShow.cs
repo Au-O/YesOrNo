@@ -31,7 +31,7 @@ public class UIDataShow : MonoBehaviour
     public GameObject img_tick;    //时钟指针
 
     public int morality = 20;  //道德
-    public int energy = 50;  //精力
+    public int energy = 45;  //精力
     public bool show_choice = true; //是否Choice面板
     private int countDown;  //倒计时时间
     public Coroutine cd = null;

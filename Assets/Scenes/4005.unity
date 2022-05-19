@@ -1686,7 +1686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img_tick: {fileID: 866610770}
   light: {fileID: 2071058932}
-  time: 15
+  time: 8
 --- !u!114 &1566730904
 MonoBehaviour:
   m_ObjectHideFlags: 2

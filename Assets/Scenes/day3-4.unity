@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: block4
       objectReference: {fileID: 0}
+    - target: {fileID: 1639029374215473979, guid: 781962f5ab12758498c64180d0be0590, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5918156967843407353, guid: 781962f5ab12758498c64180d0be0590, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -356,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 1433361639}
     - target: {fileID: 782324659900024381, guid: 13a5b5a7414cd8a4ab5e0b4b215aeee2, type: 3}
       propertyPath: blood
-      value: -15
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 782324659900024381, guid: 13a5b5a7414cd8a4ab5e0b4b215aeee2, type: 3}
       propertyPath: canOpen
@@ -1637,7 +1641,7 @@ GameObject:
   - component: {fileID: 1085580963}
   - component: {fileID: 1085580962}
   - component: {fileID: 1085580961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: block3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3058,6 +3062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: block1
       objectReference: {fileID: 0}
+    - target: {fileID: 7619183394559419159, guid: edb1ee5dcee722c49add22fbbd6fd897, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edb1ee5dcee722c49add22fbbd6fd897, type: 3}
 --- !u!1 &1617242393
@@ -3071,7 +3079,7 @@ GameObject:
   - component: {fileID: 1617242396}
   - component: {fileID: 1617242395}
   - component: {fileID: 1617242394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: block2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3519,7 +3527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img_tick: {fileID: 522425359}
   ChatName: Bomb
-  time: 25
+  time: 20
 --- !u!114 &1806993739
 MonoBehaviour:
   m_ObjectHideFlags: 2

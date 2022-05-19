@@ -53,8 +53,8 @@ public class CheckControl : MonoBehaviour
             flowChart.ExecuteBlock(ChatName);
         }
     }
-   // public void destroy()
-   // {
-   //     Destroy(transform.parent.gameObject);
-   // }
+    public void destroy()
+    {
+        Destroy(transform.parent.gameObject);
+    }
 }
