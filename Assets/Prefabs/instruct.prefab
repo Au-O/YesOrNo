@@ -80,7 +80,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Tab\uFF1A\u6253\u5F00\u80CC\u5305  R\uFF1A\u653E\u5165\u80CC\u5305\nA\\D\uFF1A\u79FB\u52A8     
-    Space\uFF1A\u8DF3\u8DC3\n"
+    Space\uFF1A\u8DF3\u8DC3\nA\\D+Left Shift\uFF1A\u8DD1\u6B65"
 --- !u!114 &1230691902695270430
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -210,14 +210,6 @@ public class GameMain : MonoBehaviour
         if (index >= eventNum) return;
         nowChoose.Add(choose);
     }
-    public void PushChoose(bool choose)
-    {
-        if (index >= eventNum) return;
-        if (choose == true)
-            nowChoose.Add(1);
-        else
-            nowChoose.Add(0);
-    }
 
     public void checkScene(int id)
     {

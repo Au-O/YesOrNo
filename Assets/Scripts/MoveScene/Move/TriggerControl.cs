@@ -10,14 +10,6 @@ public class TriggerControl : MonoBehaviour
     public CheckControl prompt;
     public int scene;
  
-    public void Show(GameObject prompt)
-    {
-        prompt.SetActive(true);
-    }
-    public void Hide(GameObject prompt)
-    {
-        prompt.SetActive(false);
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

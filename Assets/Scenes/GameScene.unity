@@ -333,7 +333,6 @@ GameObject:
   - component: {fileID: 291947603}
   - component: {fileID: 291947602}
   - component: {fileID: 291947601}
-  - component: {fileID: 291947604}
   m_Layer: 5
   m_Name: btn_check
   m_TagString: Untagged
@@ -405,9 +404,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1414609835}
         m_TargetAssemblyTypeName: UIDataShow, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: onClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -455,19 +454,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291947599}
   m_CullTransparentMesh: 1
---- !u!114 &291947604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291947599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ed2e748ef2675f4f88d6c2e5ed2230e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ui: {fileID: 1414609835}
 --- !u!1 &470168918
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,9 +920,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1150005488}
-  selectedCommands:
-  - {fileID: 1150005521}
+  - {fileID: 1150005476}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -2358,7 +2343,7 @@ MonoBehaviour:
   waitForFrames: 1
 --- !u!114 &1150005521
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2372,11 +2357,11 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1.5
+    floatVal: 0.5
   durationOLD: 0
 --- !u!114 &1150005522
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2394,7 +2379,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1150005523
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2408,7 +2393,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1.5
+    floatVal: 0.5
   durationOLD: 0
 --- !u!114 &1150005526
 MonoBehaviour:
@@ -2516,7 +2501,7 @@ MonoBehaviour:
     m_FontSize: 62
     m_FontStyle: 1
     m_BestFit: 1
-    m_MinSize: 47
+    m_MinSize: 43
     m_MaxSize: 86
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2524,7 +2509,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 11
+  m_Text: "\u662F\uFF0C\u662F\u4EC0\u4E48\u58F0\u97F3\uFF1F\u6A21\u6A21\u7CCA\u7CCA\u7684\uFF0C\u6709\u54ED\u58F0\uFF0C\u6709\u53EB\u56B7\u58F0\u3002\u6211\u7741\u5F00\u773C\u775B\uFF0C\u53D1\u73B0\u81EA\u5DF1\u8EBA\u5728\u5730\u4E0A\u3002\u6211\u63C9\u63C9\u773C\u775B\uFF0C\u52AA\u529B\u56DE\u5FC6\u3002\u8FD9\u662F\u4E00\u8282\u8F66\u53A2\uFF0C\u5E94\u6025\u706F\u5FAE\u5F31\u7684\u5149\u8292\u4E0B\u662F\u4E9B\u60F6\u60D1\u7684\u8138\u3002\u4F3C\u4E4E\u662F\u9047\u5230\u4E86\u4EC0\u4E48\u610F\u5916\uFF0C\u7834\u788E\u7684\u8F66\u7A97\u5916\u6F06\u9ED1\u4E00\u7247\uFF0C\u5730\u677F\u548C\u5929\u82B1\u677F\u4E5F\u7A0D\u6709\u7834\u635F\uFF0C\u91CC\u9762\u4F38\u51FA\u4E00\u4E9B\u77F3\u5757\u3002\u5E78\u8FD0\u7684\u662F\u81F3\u5C11\u73B0\u5728\u770B\u8D77\u6765\u8F66\u53A2\u8FD8\u7B97\u5B8C\u6574\uFF0C\u9664\u5F00\u5FFD\u660E\u5FFD\u6697\u7684\u706F\u5149\u4E0B\u53D8\u5F97\u8BE1\u5F02\u53EF\u6016\u7684\u9762\u5B54\u548C\u8033\u8FB9\u7684\u5608\u6742\uFF0C\u4F3C\u4E4E\u6CA1\u6709\u4EC0\u4E48\u8FEB\u8FD1\u7684\u5371\u9669\u3002\u4F46\u968F\u7740\u4EBA\u4EEC\u82CF\u9192\uFF0C\u4EBA\u7FA4\u9010\u6E10\u9A9A\u4E71\u8D77\u6765\uFF0C\u4E0D\u5B89\u7684\u60C5\u7EEA\u8513\u5EF6\u5F00\u6765\uFF0C\u6709\u4EBA\u5927\u53EB\uFF1A\u6211\u4EEC\u5F97\u79BB\u5F00\u8FD9\u513F\uFF01"
 --- !u!222 &1207156172
 CanvasRenderer:
   m_ObjectHideFlags: 0
