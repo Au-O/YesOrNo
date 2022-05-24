@@ -21,6 +21,8 @@ public class Control : MonoBehaviour
     public GameObject bag;
     public bool canOpen;
 
+    private float time;
+    private bool turnRed;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class Control : MonoBehaviour
         player = this.gameObject.transform;
         rb = this.GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        time = 0;
+        turnRed = false;
     }
     void FixedUpdate()
     {
@@ -76,7 +80,15 @@ public class Control : MonoBehaviour
             }
         }
         Jump();
-
+        if (turnRed)
+        {
+            time -= Time.deltaTime;
+            if(time<=0)
+            {
+                this.GetComponent<SpriteRenderer>().color = Color.white;
+                turnRed = false;
+            }
+        }
     }
     public void playerFlip()
     {
@@ -109,5 +121,12 @@ public class Control : MonoBehaviour
         {
             bag.SetActive(!bag.activeSelf);
         }
+    }
+    public void beAttacked(int hurt)
+    {
+        blood -= hurt;
+        this.GetComponent<SpriteRenderer>().color = Color.red;
+        time = 0.5f;
+        turnRed = true;
     }
 }

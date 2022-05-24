@@ -86,7 +86,9 @@ public class BagManager : MonoBehaviour
                 }
             }
         }
+        instance.bePicked = null;
         RefreshItem();
+        
     }
     public static void removeClickedItem()
     {
@@ -102,6 +104,7 @@ public class BagManager : MonoBehaviour
                 }
             }
         }
+        instance.bePicked = null;
         RefreshItem();
     }
 }

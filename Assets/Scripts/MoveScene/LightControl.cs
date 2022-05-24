@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class LightControl : MonoBehaviour
 {
+    public bool hasPushed=false;
+    private bool countDown=false;
+    private float time;
+    private GameObject person;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +18,15 @@ public class LightControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (countDown)
+        {
+            time -= Time.deltaTime;
+            if (time <= 0)
+            {
+                Destroy(person);
+                countDown = false;
+            }
+        }
     }
     public void LightDown()
     {
@@ -25,12 +37,15 @@ public class LightControl : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            collision.gameObject.GetComponent<Control>().blood -= 15;
+            collision.gameObject.GetComponent<Control>().beAttacked(15);
             GameData.Instance.hasHurt = true;
         }
-        if (collision.transform.tag == "person")
+        if (collision.transform.tag == "person"&&!hasPushed)
         {
-            
+            collision.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+            person = collision.gameObject;
+            countDown = true;
+            time=0.5f;
             Flowchart flowChart = GameObject.Find("Flowchart").GetComponent<Flowchart>();
             if (flowChart.HasBlock("fail"))
             {

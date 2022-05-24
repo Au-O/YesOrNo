@@ -634,6 +634,10 @@ PrefabInstance:
       propertyPath: scene
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 782324659900024381, guid: 13a5b5a7414cd8a4ab5e0b4b215aeee2, type: 3}
+      propertyPath: blood
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13a5b5a7414cd8a4ab5e0b4b215aeee2, type: 3}
 --- !u!4 &383799000 stripped
@@ -661,7 +665,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 580834125963397698, guid: 1693ff3dc0ee68140bb568d6a6864e74, type: 3}
       propertyPath: m_Name
-      value: Light (1)
+      value: Light
       objectReference: {fileID: 0}
     - target: {fileID: 580834125963397710, guid: 1693ff3dc0ee68140bb568d6a6864e74, type: 3}
       propertyPath: m_RootOrder
@@ -2541,7 +2545,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648607500}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

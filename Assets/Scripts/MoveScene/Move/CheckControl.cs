@@ -52,6 +52,7 @@ public class CheckControl : MonoBehaviour
         {
             flowChart.ExecuteBlock(ChatName);
         }
+        GameObject.Find("Light").GetComponent<LightControl>().hasPushed = true;
     }
     public void destroy()
     {

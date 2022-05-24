@@ -26,7 +26,7 @@ public class DownObject : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            collision.gameObject.GetComponent<Control>().blood -= hurt;
+            collision.gameObject.GetComponent<Control>().beAttacked(hurt);
         }
         Destroy(this.gameObject);
     }
