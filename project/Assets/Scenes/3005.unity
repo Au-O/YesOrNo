@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img_tick: {fileID: 1642812131}
   ChatName: Bomb
-  time: 15
+  time: 25
 --- !u!114 &664394227
 MonoBehaviour:
   m_ObjectHideFlags: 2
